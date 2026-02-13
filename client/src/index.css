@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark Luxury Theme - Base Colors */
+  --background: 0 0% 0%; /* Pure Black for higher elegance */
+  --foreground: 0 0% 100%;
+  
+  /* Primary - Platinum/Silver for SUACORP style or stay with Gold */
+  --primary: 0 0% 100%; /* Switching to white/silver for high contrast elegance */
+  --primary-foreground: 0 0% 0%;
+  
+  /* Secondary - Deep Charcoal */
+  --secondary: 0 0% 8%;
+  --secondary-foreground: 0 0% 90%;
+  
+  /* Accents */
+  --muted: 220 10% 16%;
+  --muted-foreground: 220 10% 60%;
+  --accent: 35 30% 50%;
+  --accent-foreground: 220 15% 10%;
+  
+  /* Borders */
+  --border: 220 10% 20%;
+  --input: 220 10% 20%;
+  --ring: 35 30% 50%;
+
+  /* Status */
+  --destructive: 0 50% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Cards */
+  --card: 220 15% 12%;
+  --card-foreground: 220 10% 90%;
+  
+  --radius: 0.25rem;
+
+  /* Fonts */
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased font-body;
+    background-image: 
+      radial-gradient(circle at 50% 0%, hsl(220 15% 15%) 0%, transparent 70%),
+      radial-gradient(circle at 80% 80%, hsl(220 15% 13%) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#F2D06B] to-[#D4AF37];
+  }
+  
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+
+  .glass-input {
+    @apply bg-white/5 border-white/10 focus:border-primary/50 focus:bg-white/10 transition-all duration-300;
+  }
+}
